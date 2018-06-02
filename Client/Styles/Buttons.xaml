@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Buttons -->
+    <Style x:Key="App.Button" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
+        <Setter Property="Background" Value="{StaticResource ControlColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource BaseTextSize}" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="MaxHeight" Value="50"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="4" />
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{StaticResource ButtonHover}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.8" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="App.Button.Text" BasedOn="{StaticResource TextStyle}" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource ControlsTextBrush}" />
+    </Style>
+
+
+</ResourceDictionary>

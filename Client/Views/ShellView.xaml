@@ -1,0 +1,17 @@
+﻿<Window x:Class="Client.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          d:DataContext="{d:DesignInstance viewModels:ShellViewModel}"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:viewModels="clr-namespace:Client.ViewModels"
+        mc:Ignorable="d" Icon="/Images/Blank.ico"
+        Title="News Feed" Height="300" Width="300" MinHeight="700" MinWidth="500">
+    <Grid Background="{StaticResource App.Background.Brush}">
+        <xctk:BusyIndicator IsBusy="{Binding IsBusy}">
+        <Frame cal:Message.Attach="RegisterFrame($source)" DataContext="{x:Null}" NavigationUIVisibility="Hidden" />
+        </xctk:BusyIndicator>
+    </Grid>
+</Window>

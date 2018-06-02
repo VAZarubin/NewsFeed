@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+    <Style x:Key="App.Icon.Loading" TargetType="Path">
+        <Setter Property="Height" Value="50" />
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="Fill" Value="{StaticResource ControlColor}" />
+        <Setter Property="Data"
+                Value="F1 M 463.762,346.906 C 451.536,374.616 433.822,399.718 412.107,420.438 C 390.404,441.170 364.711,457.514 336.980,468.245 C 309.256,479.015 279.537,484.104 250.061,483.391 C 220.580,482.714 191.417,476.237 164.738,464.394 C 138.046,452.588 113.861,435.493 93.908,414.545 C 73.940,393.607 58.217,368.834 47.907,342.118 C 37.558,315.406 32.684,286.797 33.395,258.390 C 34.073,229.977 40.336,201.925 51.756,176.259 C 63.140,150.582 79.619,127.316 99.801,108.129 C 119.973,88.927 143.827,73.822 169.527,63.934 C 195.224,54.006 222.722,49.347 250.061,50.057 C 277.404,50.737 304.347,56.785 329.000,67.783 C 353.662,78.746 376.008,94.607 394.429,114.024 C 412.865,133.429 427.351,156.365 436.820,181.049 C 446.324,205.733 450.768,232.121 450.061,258.391 L 450.186,258.391 C 450.110,259.307 450.061,260.232 450.061,261.168 C 450.061,278.361 463.079,292.508 479.793,294.305 C 476.551,312.443 471.184,330.149 463.762,346.906 Z M 516.727,258.392 C 516.062,223.567 508.506,188.852 494.552,157.109 C 480.644,125.338 460.458,96.558 435.676,72.776 C 410.909,48.976 381.537,30.161 349.747,17.749 C 317.974,5.289 283.810,-0.663 250.060,0.059 C 216.305,0.727 182.700,8.066 151.969,21.598 C 121.215,35.086 93.354,54.656 70.337,78.669 C 47.304,102.670 29.108,131.121 17.115,161.898 C 5.077,192.658 -0.660,225.709 0.060,258.392 C 0.730,291.080 7.853,323.574 20.963,353.291 C 34.030,383.029 52.982,409.972 76.229,432.222 C 99.463,454.490 126.995,472.068 156.757,483.639 C 186.506,495.255 218.447,500.775 250.060,500.058 C 281.680,499.387 313.061,492.478 341.767,479.790 C 370.491,467.144 396.514,448.811 417.998,426.329 C 439.501,403.860 456.459,377.249 467.609,348.502 C 474.399,331.075 479.005,312.878 481.433,294.440 C 482.082,294.477 482.735,294.503 483.393,294.503 C 501.802,294.503 516.726,279.580 516.726,261.170 C 516.726,260.234 516.677,259.309 516.602,258.393 L 516.727,258.392 L 516.727,258.392 Z" />
+    </Style>
+
+    <Style x:Key="Spinner" TargetType="Path" BasedOn="{StaticResource App.Icon.Loading}">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <RotateTransform CenterX="25" CenterY="25" />
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Angle" From="0" To="360"
+                                             Duration="0:0:1" RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type xctk:BusyIndicator}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BusyContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border Width="100" Height="100" CornerRadius="4" Background="White">
+                        <StackPanel Margin="4">
+                            <Path Style="{StaticResource Spinner}" />
+                            <TextBlock Text="Loading..." />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="OverlayStyle">
+            <Setter.Value>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Fill" Value="Black" />
+                    <Setter Property="Opacity" Value="0.2" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ProgressBarStyle">
+            <Setter.Value>
+                <Style TargetType="ProgressBar">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+</ResourceDictionary>

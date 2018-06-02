@@ -1,0 +1,26 @@
+# Temporary files
+*~*
+
+# VS files
+*.dbmdl
+*.ncb
+*.suo
+*.vspscc
+
+# Settings
+*.dotCover
+*.DotSettings
+*.StyleCop
+*.user
+
+
+
+# Folders
+.vs/
+bin/
+obj/
+sql/
+debug/
+release/
+OutputRoot/
+ClientBin/
