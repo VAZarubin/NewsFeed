@@ -13,12 +13,12 @@ Client application keeps feed up to date, so you don't miss new posts.
 
 Application consist of two parts
 
-*WPF Client - Windows desktop application for browsing post and comments
+* WPF Client - Windows desktop application for browsing post and comments
 
-*Http service - web.api services for data distributing
+* Http service - web.api services for data distributing
 
 
-###Server architecture
+### Server architecture
 Web service part of application - WEB api for retrivment application data such as post, summaries, comments.
 Web.api is represented as Rest like service with only get method for next catalogs - post, postsummaries, comments
 
@@ -27,7 +27,7 @@ As database component is slow and will sometimes timeout and throw an exception 
 Server side provides async model for all data requests. 
 The service endpoint presented as Web.Api set of controllers.
 
-###Client architecture
+### Client architecture
 NewsFeed Client is WPF application.
 With using Caliburn.Micro it provides MVVM pattern for all view/viewmodels.
 Reactive extension allows us to provide peridocally data request to get latest updates for feed and comment feed
@@ -53,10 +53,10 @@ To configure service, you could modify Web.config appconfig section in Web.Servi
 
 * DatabaseConnection - what kind of connection for database component shoud use 
 Possible values are:
-    42
-    towel
-    local
-    vogon
+    *42
+    *towel
+    *local
+    *vogon
 
 * UserInvalidationTime - value in second for storing cache values for user before they get outdated
 * PostInvalidationTime - value in second for storing cache values for post before they get outdated
