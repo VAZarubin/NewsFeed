@@ -53,10 +53,10 @@ To configure service, you could modify Web.config appconfig section in Web.Servi
 
 * DatabaseConnection - what kind of connection for database component shoud use 
 Possible values are:
-    *42
-    *towel
-    *local
-    *vogon
+    * 42
+    * towel
+    * local
+    * vogon
 
 * UserInvalidationTime - value in second for storing cache values for user before they get outdated
 * PostInvalidationTime - value in second for storing cache values for post before they get outdated
