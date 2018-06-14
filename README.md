@@ -1,6 +1,6 @@
-# Project Title
+# NeewsFeed
 
-Client-Service application for News Feed
+Client-Service application for News Feed surfing 
 
 ## Description
 
