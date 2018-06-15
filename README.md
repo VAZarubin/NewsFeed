@@ -85,6 +85,7 @@ To get application work make sure that Web.Services project is run before Client
 * Models - client and server side data models
 
 ## Addition comments
+* Web.Service is used to avoid data source dependency on client side
 * Database registered as Singleton in case it require only instantion for consitent data generation
 * Database component was faceded by DB.Facade and Entites libraries
 * Server side application prodeces container on each level of abstaction layer - to avoid referencing all project into the Web.Cleint one. Each level of abstaction provides only interface for current functionallity
