@@ -76,6 +76,13 @@ To get application work make sure that Web.Services project is run before Client
 * View Web.Services in browser 
 * Set Multiple (Client and Web.Services) startup projects
 
+## Project Descriptions
+* DB.Facade - facade for database component
+* DataSource.Cache - chaching helper for data provider
+* DataSource.User/Post/Comment - service for providing data with caching
+* DAL - data access managers for combinitaion of data and mapping to client entitis
+* Entites - facade for DB entites 
+* Models - client and server side data models
 
 ## Addition comments
 * Database registered as Singleton in case it require only instantion for consitent data generation
