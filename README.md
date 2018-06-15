@@ -83,6 +83,11 @@ To get application work make sure that Web.Services project is run before Client
 * DAL - data access managers for combinitaion of data and mapping to client entitis
 * Entites - facade for DB entites 
 * Models - client and server side data models
+* Configuration - config parameters for project incapsulated into dto 
+* Client - WPF application for news feed UI
+* Client.ServiceClient - http request provider to get data from service
+* Client.Test - unit test for wpf application view models
+
 
 ## Addition comments
 * Web.Service is used to avoid data source dependency on client side
