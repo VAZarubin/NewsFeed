@@ -32,9 +32,13 @@ namespace Client.ViewModels
 
         #region Fields
 
+        private string body;
+
         private ObservableCollection<Comment> commentList;
 
         private Post post;
+
+        private string title;
 
         #endregion
 
@@ -68,7 +72,23 @@ namespace Client.ViewModels
 
         #region Properties
 
-        public string Body => Post.Body;
+        public string Body
+        {
+            get
+            {
+                return body;
+            }
+            set
+            {
+                if (body == value)
+                {
+                    return;
+                }
+
+                body = value;
+                NotifyOfPropertyChange(nameof(Body));
+            }
+        }
 
         public ObservableCollection<Comment> CommentList
         {
@@ -104,15 +124,32 @@ namespace Client.ViewModels
                 }
 
                 post = value;
-                NotifyOfPropertyChange(nameof(Post));
-                NotifyOfPropertyChange(nameof(Title));
+                Title = post?.Title;
+                Body = post?.Body;
+
                 NotifyOfPropertyChange(nameof(Body));
             }
         }
 
         public int PostId { get; set; }
 
-        public string Title => Post.Title;
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                if (title == value)
+                {
+                    return;
+                }
+
+                title = value;
+                NotifyOfPropertyChange(nameof(Title));
+            }
+        }
 
         #endregion
 
